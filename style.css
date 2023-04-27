@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --container-width:400px;
+    --container-height:550px;
+    --circle-radius:200px;
+
+}
+body{
+    background-color: rgb(15, 15, 15);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    width: var(--container-width);
+    height: var(--container-height);
+    border-radius: 20px;
+    background-color: rgb(5, 5, 5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: none;
+    box-shadow: inset 6px 6px 20px white,
+                inset -6px -6px 50px black;
+}
+.color-circle{
+    margin-top: 20%;
+    width: var(--circle-radius);
+    height: var(--circle-radius);
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    outline: 5px dotted rgb(69, 69, 69);
+    transition: .3s;
+    position: relative;
+    cursor: pointer;
+}
+.color-circle::-webkit-color-swatch{
+    border-radius: 50%;
+    border: none;
+}
+.color-circle:hover{
+    transform: scale(1.1);
+    outline-color: rgb(208, 208, 208);
+}
+.color-circle::after{
+    content: " ";
+    width: var(--circle-radius);
+    height: var(--circle-radius);
+    position: absolute;
+    top:0;
+    border-radius: 50%;
+    box-shadow: inset 6px 6px 10px white,
+                inset -6px -6px 50px black;
+}
+.hexcode{
+    color: white;
+    font-weight: 500;
+    margin: 1.3rem;
+    font-size: 1.5rem;
+    user-select: none;
+    width: 120px;
+    height:45px;
+    display: grid;
+    place-content: center;
+    border-radius: 25px;
+    transition: .5s;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: inset 3px 3px 7px white,
+                inset -3px -3px 20px black;
+    
+}
+button{
+    cursor: pointer;
+    position: absolute;
+    bottom: 12%;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px black;
+    transition: .5s;
+    box-shadow: inset 5px 5px 10px rgb(239, 239, 239),
+                inset -5px -5px 20px black;
+}
+button:hover,
+button:focus        {
+    filter: grayscale(10%);
+}
+button:active,
+.hexcode:active{
+    transform: scale(1.1);
+}
