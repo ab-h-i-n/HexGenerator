@@ -1,22 +1,19 @@
 var hexValue = document.querySelector(".color-circle");
 var hexText = document.querySelector(".hexcode");
 var buttonRandom = document.querySelector(".random");
-var value = hexValue.value;
 
 window.onload = function(){
-    hexValue.value = "#ff0000";
-    hexText.innerText = hexValue.value;
-    hexText.style.background = hexValue.value;
-    buttonRandom.style.background = hexValue.value
+    UpdateColor("#ff0000");
 }
 
 hexValue.addEventListener("change",()=>{
-    console.log(hexValue.value);
-    hexText.innerText = hexValue.value;
-    hexText.style.background = hexValue.value;
-    buttonRandom.style.background = hexValue.value;
+    UpdateColor(hexValue.value);
 })
+buttonRandom.addEventListener("click",()=>{
 
+    var randomColor ="#" + Math.floor(Math.random()*16777215).toString(16);
+    UpdateColor(randomColor);
+})
 hexText.addEventListener("click",()=>{
     hexText.innerText ="Copied!";
     navigator.clipboard.writeText(hexValue.value);
@@ -24,3 +21,10 @@ hexText.addEventListener("click",()=>{
         hexText.innerText = hexValue.value;
     },1500)
 })
+
+function UpdateColor(hexVal){
+    hexValue.value = hexVal;
+    hexText.innerText = hexVal;
+    hexText.style.background = hexVal;
+    buttonRandom.style.background = hexVal;
+}
